@@ -1,0 +1,46 @@
+Server Error in '/EnterpriseDashboard' Application.
+The settings property 'BrandTypeId' was not found.
+Description: An unhandled exception occurred during the execution of the current web request. Please review the stack trace for more information about the error and where it originated in the code.
+
+Exception Details: System.Configuration.SettingsPropertyNotFoundException: The settings property 'BrandTypeId' was not found.
+
+Source Error:
+
+
+Line 5:      
+Line 6:      var withConsent = false;
+Line 7:      var isRetailer = (Utils.GetConfig("EnterpriseAdmin").Contains(MySmartProvider.BrandTypeId) && MySmartProvider.IsRetailer) ? true : false;
+Line 8:      //var withConsent = (!isRetailer && MySmartProvider.IsSwitch && !MySmartProvider.WithConsent && string.IsNullOrWhiteSpace(MySmartProvider.ConsentType)) ? false : true;
+Line 9:      var isNoUsageCss = (Utils.GetConfig("BrandNoUsageCss").Contains(MySmartProvider.BrandTypeId)) ? true : false;
+
+Source File: d:\Webroots\9003-EnterpriseDashboard\EnterpriseDashboard\Views\Home\Overview.cshtml    Line: 7
+
+Stack Trace:
+
+
+[SettingsPropertyNotFoundException: The settings property 'BrandTypeId' was not found.]
+   System.Configuration.SettingsBase.GetPropertyValueByName(String propertyName) +334
+   System.Configuration.SettingsBase.get_Item(String propertyName) +118
+   System.Web.Profile.ProfileBase.GetInternal(String propertyName) +49
+   System.Web.Profile.ProfileBase.get_Item(String propertyName) +125
+   MySmart.domain.MySmartProvider.get_BrandTypeId() +66
+   ASP._Page_Views_Home_Overview_cshtml.Execute() in d:\Webroots\9003-EnterpriseDashboard\EnterpriseDashboard\Views\Home\Overview.cshtml:7
+   System.Web.WebPages.WebPageBase.ExecutePageHierarchy() +280
+   System.Web.Mvc.WebViewPage.ExecutePageHierarchy() +125
+   System.Web.WebPages.StartPage.ExecutePageHierarchy() +143
+   System.Web.WebPages.WebPageBase.ExecutePageHierarchy(WebPageContext pageContext, TextWriter writer, WebPageRenderingBase startPage) +181
+   System.Web.Mvc.ViewResultBase.ExecuteResult(ControllerContext context) +380
+   System.Web.Mvc.<>c__DisplayClass1a.<InvokeActionResultWithFilters>b__17() +33
+   System.Web.Mvc.ControllerActionInvoker.InvokeActionResultFilter(IResultFilter filter, ResultExecutingContext preContext, Func`1 continuation) +613
+   System.Web.Mvc.ControllerActionInvoker.InvokeActionResultWithFilters(ControllerContext controllerContext, IList`1 filters, ActionResult actionResult) +263
+   System.Web.Mvc.Async.<>c__DisplayClass25.<BeginInvokeAction>b__22(IAsyncResult asyncResult) +240
+   System.Web.Mvc.<>c__DisplayClass1d.<BeginExecuteCore>b__18(IAsyncResult asyncResult) +28
+   System.Web.Mvc.Async.<>c__DisplayClass4.<MakeVoidDelegate>b__3(IAsyncResult ar) +15
+   System.Web.Mvc.Controller.EndExecuteCore(IAsyncResult asyncResult) +53
+   System.Web.Mvc.Async.<>c__DisplayClass4.<MakeVoidDelegate>b__3(IAsyncResult ar) +15
+   System.Web.Mvc.<>c__DisplayClass8.<BeginProcessRequest>b__3(IAsyncResult asyncResult) +42
+   System.Web.Mvc.Async.<>c__DisplayClass4.<MakeVoidDelegate>b__3(IAsyncResult ar) +15
+   System.Web.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute() +640
+   System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously) +299
+
+Version Information: Microsoft .NET Framework Version:4.0.30319; ASP.NET Version:4.0.30319.36720
